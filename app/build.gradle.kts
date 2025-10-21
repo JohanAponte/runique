@@ -1,8 +1,8 @@
 plugins {
+    alias(libs.plugins.runique.android.application.compose)
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("runique.android.application")
 }
 
 android {

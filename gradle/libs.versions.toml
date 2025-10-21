@@ -15,6 +15,7 @@ androidTools = "31.13.0"
 room = "2.6.1"
 ksp = "2.1.21-2.0.1"
 desugar_jdk_libs = "2.1.5"
+composeCompiler = "1.5.9"
 
 #Project versions
 projectApplicationId = "com.example.runique"
@@ -61,3 +62,4 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 
 runique-android-application = { id = "runique.android.application", version = "unspecified" }
+runique-android-application-compose = { id = "runique.android.application.compose", version = "unspecified" }
