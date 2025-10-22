@@ -1,8 +1,6 @@
 plugins {
     alias(libs.plugins.runique.android.application.compose)
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.runique.jvm.ktor)
 }
 
 android {
@@ -10,10 +8,6 @@ android {
 
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildFeatures {
-        compose = true
     }
 }
 
