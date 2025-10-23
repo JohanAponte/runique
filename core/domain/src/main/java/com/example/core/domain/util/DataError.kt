@@ -14,7 +14,7 @@ sealed interface DataError : Error {
      * These errors occur during network operations and include cases such as
      * timeouts, unauthorized access, and server issues.
      */
-    enum class NetworkError : DataError {
+    enum class Network : DataError {
         /** The request timed out. */
         REQUEST_TIMEOUT,
 

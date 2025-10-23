@@ -18,25 +18,25 @@ fun DataError.asUiText(): UiText {
         DataError.Local.DISK_FULL -> StringResource(
             R.string.error_disk_full
         )
-        DataError.NetworkError.REQUEST_TIMEOUT -> StringResource(
+        DataError.Network.REQUEST_TIMEOUT -> StringResource(
             R.string.error_request_timeout
         )
-        DataError.NetworkError.TOO_MANY_REQUESTS -> StringResource(
+        DataError.Network.TOO_MANY_REQUESTS -> StringResource(
             R.string.error_too_many_requests
         )
-        DataError.NetworkError.NO_INTERNET -> StringResource(
+        DataError.Network.NO_INTERNET -> StringResource(
             R.string.error_no_internet
         )
-        DataError.NetworkError.PAYLOAD_TOO_LARGE -> StringResource(
+        DataError.Network.PAYLOAD_TOO_LARGE -> StringResource(
             R.string.error_payload_too_large
         )
-        DataError.NetworkError.SERVER_ERROR -> StringResource(
+        DataError.Network.SERVER_ERROR -> StringResource(
             R.string.error_server_error
         )
-        DataError.NetworkError.SERIALIZATION -> StringResource(
+        DataError.Network.SERIALIZATION -> StringResource(
             R.string.error_serialization
         )
-        DataError.NetworkError.UNKNOWN -> StringResource(
+        DataError.Network.UNKNOWN -> StringResource(
             R.string.error_unknown
         )
         else -> StringResource(
