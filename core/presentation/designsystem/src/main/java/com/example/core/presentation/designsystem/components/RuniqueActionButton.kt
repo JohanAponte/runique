@@ -54,8 +54,8 @@ fun RuniqueActionButton(
     text: String,
     isLoading: Boolean,
     modifier: Modifier = Modifier,
-    enabled: Boolean = true,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    enabled: Boolean = true
 ) {
     Button(
         onClick = onClick,
@@ -63,8 +63,8 @@ fun RuniqueActionButton(
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.primary,
             contentColor = MaterialTheme.colorScheme.onPrimary,
-            disabledContentColor = RuniqueGray,
-            disabledContainerColor = RuniqueBlack
+            disabledContainerColor = RuniqueGray,
+            disabledContentColor = RuniqueBlack,
         ),
         shape = RoundedCornerShape(100f),
         modifier = modifier.height(IntrinsicSize.Min)
