@@ -140,28 +140,30 @@ fun RegisterScreen(
                 }
             )
             Spacer(modifier = Modifier.height(16.dp))
-            PasswordRequirement(
-                text = stringResource(
-                    id = R.string.at_least_x_characters,
-                    UserDataValidator.MIN_PASSWORD_LENGTH
-                ),
-                isValid = state.passwordValidationState.hasMinLength,
-            )
-            Spacer(modifier = Modifier.height(4.dp))
-            PasswordRequirement(
-                text = stringResource(id = R.string.at_least_one_number),
-                isValid = state.passwordValidationState.hasNumber,
-            )
-            Spacer(modifier = Modifier.height(4.dp))
-            PasswordRequirement(
-                text = stringResource(id = R.string.contains_lowercase_character),
-                isValid = state.passwordValidationState.hasLowerCaseCharacter,
-            )
-            Spacer(modifier = Modifier.height(4.dp))
-            PasswordRequirement(
-                text = stringResource(id = R.string.contains_uppercase_character),
-                isValid = state.passwordValidationState.hasUpperCaseCharacter,
-            )
+            if (state.password.text.isNotEmpty()) {
+                PasswordRequirement(
+                    text = stringResource(
+                        id = R.string.at_least_x_characters,
+                        UserDataValidator.MIN_PASSWORD_LENGTH
+                    ),
+                    isValid = state.passwordValidationState.hasMinLength,
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                PasswordRequirement(
+                    text = stringResource(id = R.string.at_least_one_number),
+                    isValid = state.passwordValidationState.hasNumber,
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                PasswordRequirement(
+                    text = stringResource(id = R.string.contains_lowercase_character),
+                    isValid = state.passwordValidationState.hasLowerCaseCharacter,
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                PasswordRequirement(
+                    text = stringResource(id = R.string.contains_uppercase_character),
+                    isValid = state.passwordValidationState.hasUpperCaseCharacter,
+                )
+            }
             Spacer(modifier = Modifier.height(32.dp))
             RuniqueActionButton(
                 text = stringResource(id = R.string.register),

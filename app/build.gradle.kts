@@ -28,6 +28,11 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.androidx.navigation.compose)
+
+    implementation(libs.bundles.koin)
+
+    implementation(libs.timber)
 
     implementation(projects.core.data)
     implementation(projects.core.database)
