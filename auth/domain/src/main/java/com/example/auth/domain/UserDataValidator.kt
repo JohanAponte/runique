@@ -3,10 +3,8 @@ package com.example.auth.domain
 class UserDataValidator(
     private val patternValidator: PatternValidator
 ) {
-    fun isValidEmail(email: String): Boolean {
-        val emailRegex = "^[A-Za-z](.*)([@]{1})(.+)(\\.)(.+)"
-        return email.matches(emailRegex.toRegex())
-    }
+    fun isValidEmail(email: String): Boolean = patternValidator.matches(email.trim())
+
 
     fun validatePassword(password: String): PasswordValidationState {
         val hasMinLength = password.length >= MIN_PASSWORD_LENGTH
