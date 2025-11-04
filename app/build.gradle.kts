@@ -34,6 +34,9 @@ dependencies {
 
     implementation(libs.timber)
 
+    // Crypto
+    implementation(libs.androidx.security.crypto.ktx)
+
     implementation(projects.core.data)
     implementation(projects.core.database)
     implementation(projects.core.domain)
