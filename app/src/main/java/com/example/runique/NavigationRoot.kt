@@ -1,5 +1,6 @@
 package com.example.runique
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
@@ -33,10 +34,10 @@ private fun NavGraphBuilder.authGraph(
     ) {
         composable(route = "intro") {
             IntroScreenRoot(
-                onSignInClick = {
+                onSignUpClick = {
                     navController.navigate(route = "register")
                 },
-                onSignUpClick = {
+                onSignInClick = {
                     navController.navigate(route = "login")
                 }
             )
@@ -56,6 +57,9 @@ private fun NavGraphBuilder.authGraph(
                     navController.navigate(route = "login")
                 }
             )
+        }
+        composable(route = "login") {
+            Text(text = "Login Screen")
         }
     }
 }

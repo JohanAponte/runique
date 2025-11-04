@@ -44,7 +44,6 @@ import com.example.core.presentation.designsystem.components.RuniqueActionButton
 import com.example.core.presentation.designsystem.components.RuniquePasswordTextField
 import com.example.core.presentation.designsystem.components.RuniqueTextField
 import com.example.core.presentation.ui.ObserveAsEvents
-import kotlinx.coroutines.flow.flow
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -58,6 +57,12 @@ fun RegisterScreenRoot(
     ObserveAsEvents(flow = viewModel.events) { event ->
         when (event) {
             is RegisterEvent.RegistrationSuccess -> {
+                keyboardController?.hide()
+                Toast.makeText(
+                    context,
+                    R.string.registration_sucesfull,
+                    Toast.LENGTH_LONG
+                ).show()
                 onSuccessfulRegistration()
             }
 
@@ -108,7 +113,7 @@ fun RegisterScreen(
                 ) {
                     append(stringResource(id = R.string.already_hace_an_account) + " ")
                     pushStringAnnotation(
-                        tag = "cliclable_text",
+                        tag = "clickable_text",
                         annotation = stringResource(id = R.string.login)
                     )
                     withStyle(
@@ -119,7 +124,6 @@ fun RegisterScreen(
                         )
                     ) {
                         append(stringResource(id = R.string.login))
-
                     }
                 }
             }
@@ -128,7 +132,7 @@ fun RegisterScreen(
                 text = annotatedString,
                 onClick = { offset ->
                     annotatedString.getStringAnnotations(
-                        tag = "cliclable_text",
+                        tag = "clickable_text",
                         start = offset,
                         end = offset
                     ).firstOrNull()?.let {

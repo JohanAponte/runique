@@ -15,7 +15,7 @@ import org.gradle.kotlin.dsl.configure
  * @param commonExtension A `CommonExtension` instance used to configure Android build options.
  * @param extensionType The type of extension (APPLICATION or LIBRARY) to configure.
  *
- * This function retrieves the `API_URL` from the local Gradle properties and configures the
+ * This function retrieves the `API_URL` and ``BASE_URL from the local Gradle properties and configures the
  * `debug` and `release` build types accordingly. It applies different configurations based
  * on whether the project is an application or a library.
  */
@@ -29,6 +29,7 @@ internal fun Project.configureBuildTypes(
         }
         // Retrieve the API key from the local Gradle properties.
         val apiKey = gradleLocalProperties(rootDir, providers).getProperty("API_KEY")
+        val baseUrl = gradleLocalProperties(rootDir, providers).getProperty("BASE_URL")
         when (extensionType) {
             ExtensionType.APPLICATION -> {
                 // Configure build types for an Android application.
@@ -36,12 +37,12 @@ internal fun Project.configureBuildTypes(
                     buildTypes {
                         debug {
                             // Configure the debug build type with the API key.
-                            configureDebugBuildType(apiKey)
+                            configureDebugBuildType(apiKey, baseUrl)
                         }
 
                         release {
                             // Configure the release build type with the API key.
-                            configureReleaseBuildType(commonExtension, apiKey)
+                            configureReleaseBuildType(commonExtension, apiKey, baseUrl)
                         }
                     }
                 }
@@ -53,12 +54,12 @@ internal fun Project.configureBuildTypes(
                     buildTypes {
                         debug {
                             // Configure the debug build type with the API key.
-                            configureDebugBuildType(apiKey)
+                            configureDebugBuildType(apiKey, baseUrl)
                         }
 
                         release {
                             // Configure the release build type with the API key.
-                            configureReleaseBuildType(commonExtension, apiKey)
+                            configureReleaseBuildType(commonExtension, apiKey, baseUrl)
                         }
                     }
                 }
@@ -75,9 +76,9 @@ internal fun Project.configureBuildTypes(
  *
  * This function sets the `API_URL` and `BASE_URL` fields for the debug build type.
  */
-private fun BuildType.configureDebugBuildType(apiKey: String) {
-    buildConfigField("String", "API_URL", "\"$apiKey\"")
-    buildConfigField("String", "BASE_URL", "\"https://api.debug.example.com/\"")
+private fun BuildType.configureDebugBuildType(apiKey: String, baseUrl: String) {
+    buildConfigField("String", "API_KEY", "\"$apiKey\"")
+    buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
 }
 
 /**
@@ -92,10 +93,11 @@ private fun BuildType.configureDebugBuildType(apiKey: String) {
  */
 private fun BuildType.configureReleaseBuildType(
     commonExtension: CommonExtension<*, *, *, *, *, *>,
-    apiKey: String
+    apiKey: String,
+    baseUrl: String
 ) {
-    buildConfigField("String", "API_URL", "\"$apiKey\"")
-    buildConfigField("String", "BASE_URL", "\"https://api.debug.example.com/\"")
+    buildConfigField("String", "API_KEY", "\"$apiKey\"")
+    buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
 
     isMinifyEnabled = false
     proguardFiles(

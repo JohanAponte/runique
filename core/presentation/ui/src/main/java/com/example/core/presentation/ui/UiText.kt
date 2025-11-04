@@ -50,7 +50,6 @@ sealed interface UiText {
      * @param context The Android context used to resolve the string resource.
      * @return The string representation of the `UiText`.
      */
-    @Composable
     fun asString(context: Context): String {
         return when (this) {
             is DynamicString -> value
