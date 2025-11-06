@@ -15,11 +15,11 @@ import com.example.auth.presentation.register.RegisterScreenRoot
 @Composable
 fun NavigationRoot(
     navController: NavHostController,
-    modifier: Modifier = Modifier
+    isLoggedIn: Boolean,
 ) {
     NavHost(
         navController = navController,
-        startDestination = "auth",
+        startDestination = if (isLoggedIn) "run" else "auth",
     ) {
         authGraph(navController)
     }

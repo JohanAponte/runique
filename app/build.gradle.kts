@@ -34,6 +34,8 @@ dependencies {
 
     implementation(libs.timber)
 
+    implementation(libs.androidx.core.splashscreen)
+
     // Crypto
     implementation(libs.androidx.security.crypto.ktx)
 
