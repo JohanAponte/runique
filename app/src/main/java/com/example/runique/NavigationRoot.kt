@@ -9,6 +9,7 @@ import androidx.navigation.compose.navigation
 import com.example.auth.presentation.intro.IntroScreenRoot
 import com.example.auth.presentation.login.LoginScreenRoot
 import com.example.auth.presentation.register.RegisterScreenRoot
+import com.example.run.presentation.active_run.ActiveRunScreenRoot
 import com.example.run.presentation.run_overview.RunOverviewScreenRoot
 
 @Composable
@@ -46,7 +47,7 @@ private fun NavGraphBuilder.authGraph(
         composable(route = "register") {
             RegisterScreenRoot(
                 onSignInClick = {
-                    navController.navigate(route = "login"){
+                    navController.navigate(route = "login") {
                         popUpTo("register") {
                             inclusive = true
                             saveState = true
@@ -62,14 +63,14 @@ private fun NavGraphBuilder.authGraph(
         composable(route = "login") {
             LoginScreenRoot(
                 onLoginSuccess = {
-                    navController.navigate(route = "run"){
+                    navController.navigate(route = "run") {
                         popUpTo("auth") {
                             inclusive = true
                         }
                     }
                 },
                 onSignUpClick = {
-                    navController.navigate(route = "register"){
+                    navController.navigate(route = "register") {
                         popUpTo("login") {
                             inclusive = true
                             saveState = true
@@ -90,7 +91,15 @@ private fun NavGraphBuilder.runGraph(
         route = "run"
     ) {
         composable(route = "run_overview") {
-            RunOverviewScreenRoot()
+            RunOverviewScreenRoot(
+                onStartRunClick =
+                    {
+                        navController.navigate(route = "active_run")
+                    }
+            )
+        }
+        composable("active_run") {
+            ActiveRunScreenRoot()
         }
     }
 }
