@@ -15,6 +15,9 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation(libs.bundles.koin)
+    implementation(libs.google.android.gms.play.services.location)
+
     implementation(projects.core.domain)
     implementation(projects.run.domain)
 }

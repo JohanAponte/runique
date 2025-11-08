@@ -25,6 +25,7 @@ ktorServerCallLogging = "2.3.7"
 timber = "5.0.1"
 navigationCompose = "2.7.3"
 securityCryptoKtx = "1.1.0-alpha06"
+gmsLocation = "21.3.0"
 
 #Project versions
 projectApplicationId = "com.example.runique"
@@ -64,6 +65,7 @@ androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+google-android-gms-play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "gmsLocation" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "coroutines" }
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
