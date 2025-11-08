@@ -43,7 +43,7 @@ class HttpClientFactory(
             }
             defaultRequest {
                 contentType(ContentType.Application.Json)
-                header("x-app-key", BuildConfig.API_KEY)
+                header("x-api-key", BuildConfig.API_KEY)
             }
             install(Auth) {
                 bearer {
@@ -57,7 +57,7 @@ class HttpClientFactory(
                     refreshTokens {
                         val info = sessionStorage.get()
                         val response = client.post<AccessTokenRequest, AccessTokenResponse>(
-                            route = "/accesToken",
+                            route = "/accessToken",
                             body = AccessTokenRequest(
                                 refreshToken = info?.refreshToken ?: "",
                                 userId = info?.userId ?: ""

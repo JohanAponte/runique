@@ -58,7 +58,7 @@ class LoginViewModel(
             state = state.copy(isLoggingIn = true)
             val result = authRepository.login(
                 email = state.email.text.toString().trim(),
-                password = state.password.toString().trim()
+                password = state.password.text.toString().trim()
             )
             state = state.copy(isLoggingIn = false)
             when (result) {
