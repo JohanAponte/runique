@@ -15,6 +15,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation(libs.google.maps.android.compose)
+
     implementation(projects.core.domain)
     implementation(projects.run.domain)
 

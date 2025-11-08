@@ -30,6 +30,7 @@ internal fun Project.configureBuildTypes(
         // Retrieve the API key from the local Gradle properties.
         val apiKey = gradleLocalProperties(rootDir, providers).getProperty("API_KEY")
         val baseUrl = gradleLocalProperties(rootDir, providers).getProperty("BASE_URL")
+        val mapsApiKey = gradleLocalProperties(rootDir, providers).getProperty("MAPS_API_KEY")
         when (extensionType) {
             ExtensionType.APPLICATION -> {
                 // Configure build types for an Android application.
@@ -37,12 +38,12 @@ internal fun Project.configureBuildTypes(
                     buildTypes {
                         debug {
                             // Configure the debug build type with the API key.
-                            configureDebugBuildType(apiKey, baseUrl)
+                            configureDebugBuildType(apiKey, baseUrl, mapsApiKey)
                         }
 
                         release {
                             // Configure the release build type with the API key.
-                            configureReleaseBuildType(commonExtension, apiKey, baseUrl)
+                            configureReleaseBuildType(commonExtension, apiKey, baseUrl, mapsApiKey)
                         }
                     }
                 }
@@ -54,12 +55,12 @@ internal fun Project.configureBuildTypes(
                     buildTypes {
                         debug {
                             // Configure the debug build type with the API key.
-                            configureDebugBuildType(apiKey, baseUrl)
+                            configureDebugBuildType(apiKey, baseUrl, mapsApiKey)
                         }
 
                         release {
                             // Configure the release build type with the API key.
-                            configureReleaseBuildType(commonExtension, apiKey, baseUrl)
+                            configureReleaseBuildType(commonExtension, apiKey, baseUrl, mapsApiKey)
                         }
                     }
                 }
@@ -76,9 +77,10 @@ internal fun Project.configureBuildTypes(
  *
  * This function sets the `API_URL` and `BASE_URL` fields for the debug build type.
  */
-private fun BuildType.configureDebugBuildType(apiKey: String, baseUrl: String) {
+private fun BuildType.configureDebugBuildType(apiKey: String, baseUrl: String, mapsApiKey: String) {
     buildConfigField("String", "API_KEY", "\"$apiKey\"")
     buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
+    manifestPlaceholders["MAPS_API_KEY"] = "\"${mapsApiKey}\""
 }
 
 /**
@@ -94,10 +96,12 @@ private fun BuildType.configureDebugBuildType(apiKey: String, baseUrl: String) {
 private fun BuildType.configureReleaseBuildType(
     commonExtension: CommonExtension<*, *, *, *, *, *>,
     apiKey: String,
-    baseUrl: String
+    baseUrl: String,
+    mapsApiKey: String
 ) {
     buildConfigField("String", "API_KEY", "\"$apiKey\"")
     buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
+    manifestPlaceholders["MAPS_API_KEY"] = "\"${mapsApiKey}\""
 
     isMinifyEnabled = false
     proguardFiles(
