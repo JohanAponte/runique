@@ -54,29 +54,29 @@ class ActiveRunViewModel(
 
         runningTracker
             .currentLocation
-            .onEach { location ->
+            .onEach {
                 state = state.copy(
-                    currentLocation = location?.location
+                    currentLocation = it?.location
                 )
             }
             .launchIn(viewModelScope)
 
         runningTracker
             .runData
-            .onEach { runData ->
+            .onEach {
                 state = state.copy(
-                    runData = runData
+                    runData = it
                 )
             }
             .launchIn(viewModelScope)
 
         runningTracker
             .elapsedTime
-            .onEach { elapsedTime ->
+            .onEach {
                 state = state.copy(
-                    elapsedTime = elapsedTime
+                    elapsedTime = it
                 )
-            }
+            }.launchIn(viewModelScope)
     }
 
     fun onAction(action: ActiveRunAction) {
