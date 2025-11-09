@@ -58,8 +58,8 @@ fun RuniqueDialog(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                primaryButton()
                 secondaryButton()
+                primaryButton()
             }
         }
     }
