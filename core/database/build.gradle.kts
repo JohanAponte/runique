@@ -10,4 +10,6 @@ android {
 dependencies {
 
     implementation(projects.core.domain)
+    implementation(libs.org.mongodb.bson)
+    implementation(libs.bundles.koin)
 }

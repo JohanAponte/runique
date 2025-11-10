@@ -1,6 +1,6 @@
 [versions]
 agp = "8.9.3"
-kotlin = "2.0.21"
+kotlin = "2.1.21"
 coreKtx = "1.17.0"
 coreSplashscreen = "1.0.1"
 junit = "4.13.2"
@@ -13,7 +13,7 @@ appcompat = "1.7.1"
 material = "1.13.0"
 jetbrainsKotlinJvm = "2.0.21"
 androidTools = "31.13.0"
-room = "2.6.1"
+room = "2.8.3"
 ksp = "2.1.21-2.0.1"
 desugar_jdk_libs = "2.1.5"
 composeCompiler = "1.5.9"
@@ -29,6 +29,7 @@ secretsPlugin = "2.0.1"
 securityCryptoKtx = "1.1.0-alpha06"
 gmsLocation = "21.3.0"
 maps = "4.3.3"
+bson = "4.11.1"
 
 #Project versions
 projectApplicationId = "com.example.runique"
@@ -74,6 +75,7 @@ google-maps-android-compose = { module = "com.google.maps.android:maps-compose",
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "coroutines" }
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
+org-mongodb-bson = { module = "org.mongodb:bson", version.ref = "bson" }
 ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
