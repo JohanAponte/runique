@@ -40,12 +40,13 @@ import com.google.maps.android.compose.MarkerComposable
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.google.maps.android.compose.rememberMarkerState
 import com.google.maps.android.ktx.awaitSnapshot
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-@OptIn(MapsComposeExperimentalApi::class)
+@OptIn(MapsComposeExperimentalApi::class, DelicateCoroutinesApi::class)
 @Composable
 fun TrackerMap(
     isRunFinished: Boolean,
@@ -136,10 +137,9 @@ fun TrackerMap(
                         .include(
                             LatLng(
                                 location.location.location.lat,
-                                location.location.location.long
+                                location.location.location.long,
                             )
                         )
-
                 }
                 map.moveCamera(
                     CameraUpdateFactory.newLatLngBounds(
@@ -148,17 +148,13 @@ fun TrackerMap(
                     )
                 )
 
-                map.setOnCameraMoveListener {
+                map.setOnCameraIdleListener {
                     createSnapshotJob?.cancel()
                     createSnapshotJob = GlobalScope.launch {
                         delay(500L)
                         map.awaitSnapshot()?.let(onSnapshot)
                     }
                 }
-
-                val bmp = map.awaitSnapshot()
-
-
             }
         }
 
