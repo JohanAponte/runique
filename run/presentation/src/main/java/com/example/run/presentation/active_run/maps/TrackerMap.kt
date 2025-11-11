@@ -19,6 +19,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
@@ -118,6 +119,7 @@ fun TrackerMap(
             modifier
                 .width(300.dp)
                 .aspectRatio(16 / 9f)
+                .alpha(0f)
                 .onSizeChanged {
                     if (it.width >= 300) {
                         triggerCapture = true

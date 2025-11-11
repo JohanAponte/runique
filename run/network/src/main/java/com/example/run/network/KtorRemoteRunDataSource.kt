@@ -17,8 +17,8 @@ import io.ktor.http.Headers
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.util.InternalAPI
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.encodeToJsonElement
 
 
 class KtorRemoteRunDataSource(
@@ -37,7 +37,7 @@ class KtorRemoteRunDataSource(
         run: Run,
         mapPicture: ByteArray
     ): Result<Run, DataError.Network> {
-        val createRunRequestJson = Json.encodeToJsonElement(run.toCreateRunRequest())
+        val createRunRequestJson = Json.encodeToString(run.toCreateRunRequest())
         val result = safeCall<RunDto> {
             httpClient.submitFormWithBinaryData(
                 url = constructRout(route = "/run"),

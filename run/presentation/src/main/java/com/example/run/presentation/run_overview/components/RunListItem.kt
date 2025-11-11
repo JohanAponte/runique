@@ -134,7 +134,7 @@ private fun DataGrid(
     val runDataList = listOf(
         RunDataUi(
             name = stringResource(id = R.string.distance),
-            value = run.duration,
+            value = run.distance,
         ),
         RunDataUi(
             name = stringResource(id = R.string.pace),
