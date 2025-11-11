@@ -42,6 +42,7 @@ fun RunOverviewScreenRoot(
                 RunOverviewAction.OnStartClick -> onStartRunClick()
                 else -> Unit
             }
+            viewModel.onAction(action)
         }
     )
 }
@@ -113,7 +114,7 @@ private fun RunOverviewScreen(
                 RunListItem(
                     runUi = it,
                     onDeleteClick = {
-                        (RunOverviewAction.DeleteRun(it))
+                        onAction(RunOverviewAction.DeleteRun(it))
                     },
                     modifier = Modifier.animateItem()
                 )
