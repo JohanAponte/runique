@@ -98,7 +98,14 @@ private fun NavGraphBuilder.runGraph(
                 onStartRunClick =
                     {
                         navController.navigate(route = "active_run")
+                    },
+                onLogoutClick = {
+                    navController.navigate(route = "auth") {
+                        popUpTo("run") {
+                            inclusive = true
+                        }
                     }
+                }
             )
         }
         composable(
