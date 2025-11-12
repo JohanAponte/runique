@@ -15,7 +15,9 @@ val databaseModule = module {
             androidApplication(),
             RunDataBase::class.java,
             "run.db"
-        ).build()
+        )
+            .fallbackToDestructiveMigration(false)
+            .build()
     }
 
     single { get<RunDataBase>().runDao }

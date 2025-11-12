@@ -15,6 +15,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation(libs.bundles.koin)
+    implementation(libs.koin.android.workmanager)
     implementation(projects.core.domain)
     implementation(projects.core.database)
     implementation(projects.run.domain)
