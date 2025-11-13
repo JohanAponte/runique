@@ -198,7 +198,9 @@ private fun MapImage(imageUrl: String?, modifier: Modifier = Modifier) {
         },
         error = {
             Box(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.errorContainer),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
