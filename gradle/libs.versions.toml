@@ -110,8 +110,10 @@ runique-android-library = { id = "runique.android.library", version = "unspecifi
 runique-android-library-compose = { id = "runique.android.library.compose", version = "unspecified" }
 runique-android-feature-ui = { id = "runique.android.feature.ui", version = "unspecified" }
 runique-android-room = { id = "runique.android.room", version = "unspecified" }
+runique-android-dynamic-feature = { id = "runique.android.dynamic.feature", version = "unspecified" }
 runique-jvm-library = { id = "runique.jvm.library", version = "unspecified" }
 runique-jvm-ktor = { id = "runique.jvm.ktor", version = "unspecified" }
+android-dynamic-feature = { id = "com.android.dynamic-feature", version.ref = "agp" }
 
 
 [bundles]
