@@ -37,6 +37,7 @@ class AndroidDynamicFeatureConventionPlugin : Plugin<Project> {
             // Apply Android application and Kotlin Android plugins to the project.
             pluginManager.run {
                 apply("com.android.dynamic-feature")
+                apply("org.jetbrains.kotlin.plugin.compose")
                 apply("org.jetbrains.kotlin.android")
             }
 
