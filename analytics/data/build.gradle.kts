@@ -9,7 +9,7 @@ android {
 dependencies {
 
     implementation(libs.kotlinx.coroutines.core)
-
+    implementation(libs.bundles.koin)
 
     implementation(projects.analytics.domain)
     implementation(projects.core.database)
