@@ -19,13 +19,14 @@ import com.example.run.presentation.run_overview.RunOverviewScreenRoot
 fun NavigationRoot(
     navController: NavHostController,
     isLoggedIn: Boolean,
+    onAnalytics: () -> Unit
 ) {
     NavHost(
         navController = navController,
         startDestination = if (isLoggedIn) "run" else "auth",
     ) {
         authGraph(navController)
-        runGraph(navController)
+        runGraph(navController, onAnalytics)
     }
 
 }
@@ -87,7 +88,8 @@ private fun NavGraphBuilder.authGraph(
 }
 
 private fun NavGraphBuilder.runGraph(
-    navController: NavHostController
+    navController: NavHostController,
+    onAnalytics: () -> Unit
 ) {
     navigation(
         startDestination = "run_overview",
@@ -99,6 +101,7 @@ private fun NavGraphBuilder.runGraph(
                     {
                         navController.navigate(route = "active_run")
                     },
+                onAnalyticsClick = onAnalytics,
                 onLogoutClick = {
                     navController.navigate(route = "auth") {
                         popUpTo("run") {

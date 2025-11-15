@@ -31,9 +31,8 @@ fun AnalyticsDashboardScreenRoot(
         state = viewModel.state,
         onAction = { action ->
             when (action) {
-                AnalyticsAction.OnBackClick -> action
+                AnalyticsAction.OnBackClick -> onBackClick()
             }
-            viewModel.onAction(action)
         }
     )
 }

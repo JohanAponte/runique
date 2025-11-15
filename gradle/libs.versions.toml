@@ -30,6 +30,7 @@ securityCryptoKtx = "1.1.0-alpha06"
 gmsLocation = "21.3.0"
 maps = "4.3.3"
 bson = "4.11.1"
+featureDelivery = "2.1.0"
 
 #Project versions
 projectApplicationId = "com.example.runique"
@@ -52,6 +53,7 @@ androidx-activity-compose = { group = "androidx.activity", name = "activity-comp
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
+android-feature-delivery = { module = "com.google.android.play:feature-delivery", version.ref = "featureDelivery" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }

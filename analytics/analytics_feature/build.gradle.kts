@@ -8,7 +8,9 @@ android {
 dependencies {
     implementation(project(":app"))
 
+    implementation(libs.androidx.navigation.compose)
     api(projects.analytics.presentation)
+    implementation(libs.android.feature.delivery)
     implementation(projects.analytics.domain)
     implementation(projects.analytics.data)
     implementation(projects.core.database)

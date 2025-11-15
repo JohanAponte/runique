@@ -37,6 +37,8 @@ dependencies {
 
     implementation(libs.androidx.core.splashscreen)
 
+
+    api(libs.android.feature.delivery)
     // Crypto
     implementation(libs.androidx.security.crypto.ktx)
 

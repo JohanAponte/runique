@@ -19,12 +19,4 @@ class AnalyticsDashboardViewModel(
             state = analyticsRepository.getAnalyticsValues().toAnalyticsDashboardState()
         }
     }
-
-    fun onAction(action: AnalyticsAction) {
-        when (action) {
-
-            // Handle other actions here
-            AnalyticsAction.OnBackClick -> TODO()
-        }
-    }
 }

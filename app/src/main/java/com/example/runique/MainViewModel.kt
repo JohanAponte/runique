@@ -23,4 +23,8 @@ class MainViewModel(
             state = state.copy(isCheckingAuth = false)
         }
     }
+
+    fun setShowAnalyticsDialogVisibility(isVisible: Boolean) {
+        state = state.copy(showAnalyticsInstallDialog = isVisible)
+    }
 }
