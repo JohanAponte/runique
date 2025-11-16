@@ -19,7 +19,6 @@ import io.ktor.http.HttpMethod
 import io.ktor.util.InternalAPI
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import timber.log.Timber
 
 
 class KtorRemoteRunDataSource(
@@ -39,7 +38,6 @@ class KtorRemoteRunDataSource(
         mapPicture: ByteArray
     ): Result<Run, DataError.Network> {
         val createRunRequestJson = Json.encodeToString(run.toCreateRunRequest())
-        Timber.log(2, "Posted run with id: $createRunRequestJson")
         val result = safeCall<RunDto> {
             httpClient.submitFormWithBinaryData(
                 url = constructRout(route = "/run"),
@@ -57,7 +55,6 @@ class KtorRemoteRunDataSource(
                 method = HttpMethod.Post
             }
         }
-        Timber.log(1, "Posted run with id: ${result.toString()}")
         return result.map { runDto ->
             runDto.toRun()
         }
