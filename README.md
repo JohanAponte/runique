@@ -1,1 +1,1 @@
-# <img src="assets/logo.png" alt="Vista previa" width="20" height="20"/> Runique App 
+# <img src="assets/logo.png" alt="Vista previa" width="30" height="30"/> Runique App 
